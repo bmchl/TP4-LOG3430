@@ -14,7 +14,4 @@ jobs:
             - name: Install packages
               run: pip install -r requirements.txt
             - name: Run git bisect
-              run: |
-                  git bisect start HEAD e4cfc6f77ebbe2e23550ddab682316ab4ce1c03c
-                  git bisect run python manage.py test
-                  git bisect reset
+              run: badhash=${{ github.sha }} goodhash=e4cfc6f77ebbe2e23550ddab682316ab4ce1c03c python myscript.py
